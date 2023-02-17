@@ -1,4 +1,8 @@
-public class Prefecture implements Comparable<Prefecture>{
+import java.util.Objects;
+
+public class Prefecture implements Comparable<Prefecture> {
+
+
     private String name;
     private String region;
     private int population;
@@ -24,8 +28,17 @@ public class Prefecture implements Comparable<Prefecture>{
     }
 
     @Override
-    public int compareTo(Prefecture other) {
-        return Integer.compare(other.population, this.population);
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Prefecture that = (Prefecture) o;
+        return population == that.population && Objects.equals(name, that.name) && Objects.equals(region, that.region);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, region, population);
+    }
 }

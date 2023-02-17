@@ -58,7 +58,6 @@ public class Main {
 
         //リストに「東京都」があるか調査
         boolean hasTokyo = prefList.stream()
-                .map(Prefecture::getName)
                 .anyMatch(name -> name.equals("東京都"));
 
         //結果出力
