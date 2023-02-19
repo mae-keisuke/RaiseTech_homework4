@@ -14,19 +14,20 @@ public class Main {
         prefList.add(new Prefecture("福岡県", "九州", 511));
         prefList.add(new Prefecture("奈良県", "関西", 134));
 
-        //「府」のみ抽出
+        //「県」のみ抽出
         List<Prefecture> filteredName = prefList.stream()
-                .filter(n -> n.getName().contains("府"))
+                .filter(n -> n.getName().contains("県"))
                 .distinct()
                 .toList();
 
-        //「府」の数をカウント
+        //「県」の数をカウント
         long filteredNameNum = filteredName.stream()
-                .filter(n -> n.getName().contains("府"))
+                .filter(n -> n.getName().contains("県"))
+                .distinct()
                 .count();
 
         //結果出力
-        System.out.println("■「府」がつく都道府県のみ抽出");
+        System.out.println("■「県」がつく都道府県のみ抽出");
         System.out.println("数：" + filteredNameNum);
         filteredName.forEach(System.out::println);
         System.out.println("-----------------------");
@@ -34,7 +35,7 @@ public class Main {
 
         //「関西」のみ抽出
         List<Prefecture> filteredRegion = prefList.stream()
-                .filter(n -> n.getRegion().equals("関西"))
+                .filter(r -> r.getRegion().equals("関西"))
                 .distinct()
                 .toList();
 
@@ -58,7 +59,7 @@ public class Main {
 
         //リストに「東京都」があるか調査
         boolean hasTokyo = prefList.stream()
-                .anyMatch(name -> name.equals("東京都"));
+                .anyMatch(n -> n.getName().equals("東京都"));
 
         //結果出力
         System.out.println("■ リストに「東京都」はある？");

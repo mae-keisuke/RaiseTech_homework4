@@ -28,6 +28,10 @@ public class Prefecture implements Comparable<Prefecture> {
     }
 
     @Override
+    public int compareTo(Prefecture other) {
+        return Integer.compare(other.population, this.population);
+    }
+
 
     @Override
     public boolean equals(Object o) {
