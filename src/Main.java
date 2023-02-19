@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -47,7 +48,7 @@ public class Main {
 
         //人口順に並び替え
         List<Prefecture> sortedPopulation = prefList.stream()
-                .sorted()
+                .sorted(Comparator.comparing(p -> ((Prefecture) p).getPopulation()).reversed())
                 .distinct()
                 .toList();
 

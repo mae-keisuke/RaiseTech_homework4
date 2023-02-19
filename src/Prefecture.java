@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Prefecture implements Comparable<Prefecture> {
+public class Prefecture {
 
 
     private String name;
@@ -21,17 +21,15 @@ public class Prefecture implements Comparable<Prefecture> {
         return region;
     }
 
+    public int getPopulation() {
+        return population;
+    }
+
     @Override
     public String toString() {
         return "都道府県：" + name + "、" +
                 "人口：" + population + "万人";
     }
-
-    @Override
-    public int compareTo(Prefecture other) {
-        return Integer.compare(other.population, this.population);
-    }
-
 
     @Override
     public boolean equals(Object o) {
