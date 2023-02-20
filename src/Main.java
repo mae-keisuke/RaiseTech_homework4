@@ -36,7 +36,7 @@ public class Main {
 
         //「関西」のみ抽出
         List<Prefecture> filteredRegion = prefList.stream()
-                .filter(r -> r.getRegion().equals("関西"))
+                .filter(p -> p.getRegion().equals("関西"))
                 .distinct()
                 .toList();
 
@@ -48,7 +48,7 @@ public class Main {
 
         //人口順に並び替え
         List<Prefecture> sortedPopulation = prefList.stream()
-                .sorted(Comparator.comparing(p -> ((Prefecture) p).getPopulation()).reversed())
+                .sorted(Comparator.comparing(Prefecture::getPopulation).reversed())
                 .distinct()
                 .toList();
 

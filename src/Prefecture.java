@@ -28,7 +28,7 @@ public class Prefecture {
     @Override
     public String toString() {
         return "都道府県：" + name + "、" +
-                "人口：" + population + "万人";
+                "人口：" + String.format("%,d", population) + "万人";
     }
 
     @Override
