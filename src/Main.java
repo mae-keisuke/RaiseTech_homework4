@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -35,7 +36,7 @@ public class Main {
 
         //「関西」のみ抽出
         List<Prefecture> filteredRegion = prefList.stream()
-                .filter(r -> r.getRegion().equals("関西"))
+                .filter(p -> p.getRegion().equals("関西"))
                 .distinct()
                 .toList();
 
@@ -47,7 +48,7 @@ public class Main {
 
         //人口順に並び替え
         List<Prefecture> sortedPopulation = prefList.stream()
-                .sorted()
+                .sorted(Comparator.comparing(Prefecture::getPopulation).reversed())
                 .distinct()
                 .toList();
 
